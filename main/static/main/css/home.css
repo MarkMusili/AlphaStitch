@@ -1,0 +1,286 @@
+.section {
+    padding: 80px 64px;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.container img {
+    border-radius: 28px;
+}
+.buttons {
+    display: flex;
+    gap: 16px;
+    width: fit-content;
+}
+.buttons a:nth-child(2) button{
+    transition: 0.5s;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.buttons a:nth-child(2) button:hover{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.benefits {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color);
+}
+
+.benefits .container {
+    text-align: center;
+}
+.lined-text {
+    padding-bottom: 24px;
+}
+.lined-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+.lined-text::before,
+.lined-text::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--secondary-color);
+    margin: 0 32px;
+}
+
+.items {
+    display: flex;
+    gap: 32px;
+}
+
+.item {
+    max-width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 20px 32px 20px;
+    align-items: center;
+
+}
+.item-head {
+    padding-bottom: 20px;
+    font: var(--h6);
+}
+.item-description {
+    padding-bottom: 32px;
+    font: var(--p);
+}
+
+.item-link {
+    color: var(--secondary-color);
+    width: fit-content;
+}
+
+.item a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.item a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.product .container {
+    text-align: center;
+}
+.product_list {
+    display: flex;
+    gap: 32px;
+    width: 996px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+.product_list::-webkit-scrollbar{
+    display: none;
+}
+.product_item {
+    flex:  0 0 calc((100% - 64px) / 3);
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    scroll-snap-align: start;
+}
+.product_item img {
+    width: 300px;
+    height: 480px;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+.product_item:hover img {
+    opacity: 0.3;
+}
+.direction {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+.direction button{
+    font-family: cursive;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    border:none;
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    transition: 0.5s;
+    color: var(--secondary-color);
+}
+.direction button:hover{
+    background-color: grey;
+    color: var(--primary-color);
+}
+.product_hover {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+.product_item:hover .product_hover {
+    display: block;
+}
+.product .container button {
+    margin-top: 20px;
+}
+
+.cta {
+    background-color: var(--primary-color);
+}
+.cta .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cta .container h2{
+    margin-bottom: 24px;
+}
+.cta .container p {
+    margin: 0 0 32px 0;
+    font: var(--p);
+}
+.cta .container button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.cta .container .buttons a:nth-child(2) button{
+    transition: 0.5s;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+.cta .container .buttons a:nth-child(2) button:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.process {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.process .container img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+.process .container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+}
+.process .container ul li:first-child {
+    padding-left: 12px;
+    border-left: 1px solid var(--primary-color);
+}
+
+.process .container ul li:hover {
+    padding-left: 12px;
+    border-left: 1px solid var(--primary-color);
+}
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+.reviews .container {
+    text-align: center;
+}
+.review_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.reviews .direction button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.reviews .direction button:hover {
+    color: var(--secondary-color);
+    background-color: grey;
+}
+.review_list {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+.review_list a  {
+    color: var(--secondary-color);
+}
+.review_item {
+    flex: 0 0 100%;
+    transition: 0.5s;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.review_item a {
+    color: var(--secondary-color);
+}

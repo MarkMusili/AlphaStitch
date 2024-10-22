@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% if title %}
+        <title>{{title}}</title>
+    {% else %}
+        <title>Alpha-stitch</title>
+    {% endif %}
+    {% block link %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% endblock %}
 </head>
 <body>
     <header>
@@ -21,7 +27,9 @@
         </nav>
         <a href="#"><button>Get a Quote</button></a>
     </header>
-    <main></main>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
     <footer>
         <div class="footer-up">
             <h5>Alpha Stitch</h5>

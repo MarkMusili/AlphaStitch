@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='categories/', default='default.jpg', null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -11,7 +12,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='products/', null=True, blank=True)
+    image = models.ImageField(upload_to='products/', default='default.jpg',null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
