@@ -215,14 +215,22 @@
     background-color: #f0f0f0;
 }
 
-#load-more-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
+.cta {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
 }
-
-#load-more-btn:hover {
-    background-color: #0056b3;
+.cta .buttons a button:nth-child(1) {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.cta .container .buttons a:nth-child(2) button{
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    transition: 0.5s;
+}
+.cta .container .buttons a:nth-child(2) button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
 }

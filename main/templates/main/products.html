@@ -8,60 +8,72 @@
     <script src="{% static 'main/js/product.js' %}" defer></script>
 {% endblock %}
 {% block content %}
-<div class="hero section">
-    <div class="container">
-        <div class="content">
-            <h2>Our Products & Services</h2>
-            <p>Discover a wide range of quality shades, covers, and camping accessories tailored for your needs.</p>
-        </div>
-        <div class="buttons">
-            <a href=""><button>Explore Products</button></a>
-            <a href=""><button>Contact Us</button></a>
-        </div>
-    </div>
-</div>
-<div class="products section">
-    <div class="container header-products">
-        <h6 class="lined-text">Explore</h6>
-        <h2>Browse Our Products</h2>
-    </div>
-    <div id="products" class="container">
-        <div class="categories">
-            <ul>
-                <li><a href="{% url 'products' %}#products"><button>All Products</button></a></li>
-                {% for category in Categories %}
-                <li>
-                    <a href="{% url 'products' %}?category={{ category.id }}#products"
-                       {% if category.id|stringformat:"s" == selected_category|stringformat:"s" %}class="active"{% endif %}>
-                        <button>{{ category.name }}</button>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="search-icon">
-                <i class="fa fa-search" id="open-search"></i>
+    <div class="hero section">
+        <div class="container">
+            <div class="content">
+                <h2>Our Products & Services</h2>
+                <p>Discover a wide range of quality shades, covers, and camping accessories tailored for your needs.</p>
             </div>
-            <div class="overlay" id="overlay"></div>
-            <div class="search-container hidden" id="search-container">
-                <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
-                <div id="suggestions-box"></div>
-                <i class="fa fa-times" id="close-search"></i> <!-- Close icon -->
+            <div class="buttons">
+                <a href=""><button>Explore Products</button></a>
+                <a href=""><button>Contact Us</button></a>
             </div>
         </div>
-        <div class="product_list">
-            {% for item in Products %}
-                <div class="product_item">
-                    <div class="product_image">
-                        <img src="{{ item.image.url|default_if_none:default_image_url }}" alt="">
-                    </div>
-                    <div class="product_details">
-                        <h5>{{ item.name }}</h5>
-                    </div>
-                    <div class="product_hover">
-                        <a href="{% url 'product_detail' item.id%}"><button>View Product</button></a>
-                    </div>
+    </div>
+    <div class="products section">
+
+        <div class="container header-products">
+            <h6 class="lined-text">Explore</h6>
+            <h2>Browse Our Products</h2>
+        </div>
+        <div id="products" class="container">
+            <div class="categories">
+                <ul>
+                    <li><a href="{% url 'products' %}#products"><button>All Products</button></a></li>
+                    {% for category in Categories %}
+                    <li>
+                        <a href="{% url 'products' %}?category={{ category.id }}#products"
+                        {% if category.id|stringformat:"s" == selected_category|stringformat:"s" %}class="active"{% endif %}>
+                            <button>{{ category.name }}</button>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="search-icon">
+                    <i class="fa fa-search" id="open-search"></i>
                 </div>
-            {% endfor %}
+                <div class="overlay" id="overlay"></div>
+                <div class="search-container hidden" id="search-container">
+                    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                    <div id="suggestions-box"></div>
+                    <i class="fa fa-times" id="close-search"></i> <!-- Close icon -->
+                </div>
+            </div>
+            <div class="product_list">
+                {% for item in Products %}
+                    <div class="product_item">
+                        <div class="product_image">
+                            <img src="{{ item.image.url|default_if_none:default_image_url }}" alt="">
+                        </div>
+                        <div class="product_details">
+                            <h5>{{ item.name }}</h5>
+                        </div>
+                        <div class="product_hover">
+                            <a href="{% url 'product_detail' item.id%}"><button>View Product</button></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-</div>
+    </div>
+    <div class="cta section">
+        <div class="container">
+            <h2>Explore Our Quality Products</h2>
+            <p>Discover a wide range of products to match your Style and Comfort</p>
+            <div class="buttons">
+                <a href="{% url 'products' %}"><button>View Products</button></a>
+                <a href=""><button>Get a Quote</button></a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

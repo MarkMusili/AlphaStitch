@@ -74,3 +74,17 @@ def product_detail(request, product_id):
         'features': features,
     }
     return render(request, 'main/product_detail.html', context)
+
+def about(request):
+    title = 'About'
+    context = {
+        'title': title,
+    }
+    return render(request, 'main/about.html', context)
+
+def contact(request):
+    title = 'Contact'
+    context = {
+        'title': title,
+    }
+    return render(request, 'main/contact.html', context)
