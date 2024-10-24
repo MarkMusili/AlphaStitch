@@ -24,7 +24,7 @@
 }
 .lined-text::before,
 .lined-text::after {
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 .products {
     display: flex;
@@ -70,6 +70,11 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+.header-products {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .product_image {
@@ -208,4 +213,16 @@
 
 #suggestions-box li:hover {
     background-color: #f0f0f0;
+}
+
+#load-more-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#load-more-btn:hover {
+    background-color: #0056b3;
 }

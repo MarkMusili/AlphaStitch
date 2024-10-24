@@ -95,7 +95,7 @@
         <div class="container">
             <h2>Featured Products</h2>
             <p>Discover a wide range of shades, covers, and camping accessories tailored to your needs.</p>
-            <button>View all Products</button>
+            <a href="{% url 'products' %}"><button>View all Products</button></a>
         </div>
         <div class="container">
             <div id="list" class="product_list">
@@ -109,8 +109,7 @@
                         </div>
                         <div class="product_hover">
                             <h5>{{ item.name }}</h5>
-                            <p>{{ item.description }}</p>
-                            <button>View Product</button>
+                            <a href="{% url 'products' %}?category={{ item.id }}#products"><button>View Product</button></a>
                         </div>
                     </div>
                 {% endfor %}
@@ -126,7 +125,7 @@
             <h2>Explore Our Quality Products</h2>
             <p>Discover a wide range of products to match your Style and Comfort</p>
             <div class="buttons">
-                <a href=""><button>View Products</button></a>
+                <a href="{% url 'products' %}"><button>View Products</button></a>
                 <a href=""><button>Get a Quote</button></a>
             </div>
         </div>

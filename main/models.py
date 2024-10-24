@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+import json
 
 # Create your models here.
 class Category(models.Model):
@@ -15,6 +16,12 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='products/', default='default.jpg',null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    features = models.TextField(null=True, blank=True, help_text="Store multiple descriptions separated by newlines")
+
+    def get_features(self):
+        if self.features:
+            return self.features.split('\n')
+        return []
 
     def __str__(self):
         return self.name

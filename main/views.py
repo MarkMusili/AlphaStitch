@@ -57,6 +57,20 @@ def search_suggestions(request):
 
     return JsonResponse([], safe=False)
 
-def product_detail(request, id):
-    product = get_object_or_404(Product, id=id)
-    return render(request, 'main/product_detail.html', {'product': product})
+def product_detail(request, product_id):
+    product = Product.objects.get(id=product_id)
+    raw_features = product.features.split('\n')
+
+    features = []
+    for feature in raw_features:
+        if ':' in feature:
+            parts = feature.split(':', 1)
+            features.append((parts[0].strip(), parts[1].strip()))
+        else:
+            features.append((feature.strip(), ''))
+
+    context = {
+        'product': product,
+        'features': features,
+    }
+    return render(request, 'main/product_detail.html', context)

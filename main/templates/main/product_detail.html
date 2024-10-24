@@ -1,0 +1,59 @@
+{% extends "main/base.html" %}
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/product_detail.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="product_detail section">
+        <nav>
+            <ul class="nav-top">
+                <a href="{% url 'products' %}#products"><li>All Products</li></a>
+                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.47099 11.7998L10.2757 7.9951L6.47099 4.19043L5.52832 5.1331L8.39032 7.9951L5.52832 10.8571L6.47099 11.7998Z" fill="black"/>
+                </svg>
+                <a href="{% url 'products' %}?category={{ product.category.id }}#products"><li>{{ product.category }}</li></a>
+                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.47099 11.7998L10.2757 7.9951L6.47099 4.19043L5.52832 5.1331L8.39032 7.9951L5.52832 10.8571L6.47099 11.7998Z" fill="black"/>
+                    </svg>
+                <a href="{% url 'product_detail' product.id%}>"><li>{{ product.name }}</li></a>
+            </ul>
+        </nav>
+        <div class="container image-grid">
+            <div class="grid-item"><img src="{{ product.image.url }}" alt=""></div>
+            <div class="grid-item"><img src="{{ product.image.url }}" alt=""></div>
+            <div class="grid-item"><img src="{{ product.image.url }}" alt=""></div>
+            <div class="grid-item"><img src="{{ product.image.url }}" alt=""></div>
+            <div class="grid-item"><img src="{{ product.image.url }}" alt=""></div>
+        </div>
+        <div class="container product_description">
+            <div class="product_info">
+                <h2>{{product.name}}</h2>
+                <p>{{product.description}}</p>
+                <ul class="product_features">
+                    {% for feature in features %}
+                        <li>
+                            <strong>{{ feature.0 }}</strong>: {{ feature.1 }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="product_cta">
+                <!-- <h4>Variants</h4>
+                <div class="variants">
+                    <button class="variant-1">Variant 1</button>
+                    <button class="variant-2">Variant 2</button>
+                    <button class="variant-3">Variant 3</button>
+                    <button class="variant-4">Variant 4</button>
+                    <button class="variant-5">Variant 5</button>
+                </div> -->
+                <h4>Actions</h4>
+                <div class="btns">
+                    <a href=""><button>Request A professional Measurement</button></a>
+                    <a href="" class="quote-btn"><button>Get a Quote</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

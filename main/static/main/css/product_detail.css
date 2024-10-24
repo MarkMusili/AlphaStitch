@@ -1,0 +1,129 @@
+.product_detail nav {
+    margin-bottom: -48px;
+}
+.product_detail ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    font: var(--p);
+}
+.nav-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product_detail ul li {
+    position: relative;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+.product_detail ul a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.product_detail a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.product_detail {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 1174px;
+}
+
+.image-grid img {
+    width: 300px;
+    height: auto;
+}
+.image-grid .grid-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.image-grid .grid-item:first-child img {
+    width: 100%;
+    height: 100%;
+}
+
+.product_description {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+
+}
+.product_info {
+    width: 50%;
+}
+.product_cta {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.variants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.btns button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.btns {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btns a:nth-child(2) button {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    transition: 0.5s;
+    color: var(--secondary-color);
+}
+.btns a:nth-child(2) button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+.product_features {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 20px;
+}
+.variant-1 {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.variant-1, .variant-2, .variant-3, .variant-4 , .variant-5 {
+    border: 1px solid var(--secondary-color);
+    transition: 0.5s;
+}
+.variant-1:hover, .variant-2:hover, .variant-3:hover, .variant-4:hover , .variant-5:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}

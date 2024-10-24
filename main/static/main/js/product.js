@@ -56,4 +56,5 @@ document.addEventListener("DOMContentLoaded", function() {
             searchContainer.classList.remove('suggestions-visible'); // Remove the border-radius change
         }
     });
+
 });
