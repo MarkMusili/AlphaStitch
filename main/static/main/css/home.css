@@ -10,6 +10,8 @@
 }
 .container img {
     border-radius: 28px;
+    width: 500px;
+    height: 550px;
 }
 .buttons {
     display: flex;
@@ -132,6 +134,7 @@
     flex-direction: column;
     transition: 0.5s ease-in-out;
     scroll-snap-align: start;
+    gap: 20px;
 }
 .product_item img {
     width: 300px;
@@ -262,7 +265,7 @@
 }
 .reviews .direction button:hover {
     color: var(--secondary-color);
-    background-color: grey;
+    background-color: white;
 }
 .review_list {
     display: flex;
