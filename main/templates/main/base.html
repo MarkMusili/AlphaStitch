@@ -22,10 +22,10 @@
                 <a href="{% url 'about' %}"><li>About</li></a>
                 <a href="#"><li>Featured</li></a>
                 <a href="{% url 'products' %}"><li>Products</li></a>
-                <a href="#"><li>Contact</li></a>
+                <a href="{% url 'contact' %}"><li>Contact</li></a>
             </ul>
         </nav>
-        <a href="#"><button>Get a Quote</button></a>
+        <a href="{% url 'contact' %}"><button>Get a Quote</button></a>
     </header>
     <main>
         {% block content %}{% endblock %}
@@ -39,7 +39,7 @@
                     <a href="{% url 'about' %}"><li>About Us</li></a>
                     <a href="#"><li>Special Offers</li></a>
                     <a href="{% url 'products' %}"><li> Our Products</li></a>
-                    <a href="#"><li>Contact Us</li></a>
+                    <a href="{% url 'contact' %}"><li>Contact Us</li></a>
                 </ul>
             </nav>
             <div class="socials-footer">

@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/products.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'main/js/product.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+    <div class="success section">
+        <h2>Success</h2>
+    </div>
+{% endblock %}

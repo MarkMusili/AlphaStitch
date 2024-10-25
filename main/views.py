@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from .forms import ContactForm
 
 
 def home(request):
@@ -83,8 +86,42 @@ def about(request):
     return render(request, 'main/about.html', context)
 
 def contact(request):
-    title = 'Contact'
-    context = {
-        'title': title,
-    }
+
     return render(request, 'main/contact.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Collect form data
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            phone_number = form.cleaned_data['phone_number']
+            product = form.cleaned_data['product']
+            message = form.cleaned_data['message']
+
+            # Compose the email content
+            subject = f"Quote Request from {first_name} {last_name}"
+            body = (
+                f"Product Selected: {product.name}\n\n"
+                f"Name: {first_name} {last_name}\n"
+                f"Email: {email}\n"
+                f"Phone Number: {phone_number}\n\n"
+                f"Message:\n{message}"
+            )
+            recipient_list = ['musiliyrn@gmail.com']
+
+            # Send the email
+            send_mail(subject, body, email, recipient_list)
+
+            return redirect('success')  # Redirect to a success page after submission
+    else:
+        form = ContactForm()
+
+    context = {'title': 'Contact', 'form': form}
+    return render(request, 'main/contact.html', context)
+
+def success(request):
+    return render(request, 'main/success.html')

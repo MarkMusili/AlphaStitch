@@ -12,8 +12,8 @@
             <h2>Explore Luxury Shades, Blinds and Outdoor Accessories</h2>
             <p>Crafted for Style, Comfort and Durability</p>
             <div class="buttons">
-                <a href=""><button>View Products</button></a>
-                <a href=""><button>Get a Quote</button></a>
+                <a href="{% url 'products' %}#products"><button>View Products</button></a>
+                <a href="{% url 'contact' %}"><button>Get a Quote</button></a>
             </div>
         </div>
         <div class="container">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="item-head">Custom-Made for Every Need</div>
                     <div class="item-description">Our products are tailored to fit your specific requirements, whether you're looking for shades, blinds, or custom PVC covers.</div>
-                    <a href=""><div class="item-link">Request a Free Quote</div></a>
+                    <a href="{% url 'contact' %}"><div class="item-link">Request a Free Quote</div></a>
                 </div>
                 <div class="item">
                     <div class="item-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="item-head">Stylish design</div>
                     <div class="item-description">From modern roller blinds to elegant outdoor shade solutions, we combine function with style to enhance your spaces.</div>
-                    <a href=""><div class="item-link">Request a Free Quote</div></a>
+                    <a href="{% url 'contact' %}"><div class="item-link">Request a Free Quote</div></a>
                 </div>
                 <div class="item">
                     <div class="item-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="item-head">Versatile Solutions</div>
                     <div class="item-description">From home interiors to protecting your outdoor areas, we offer a wide range of solutions from shade sails to camping accessories and pool covers</div>
-                    <a href=""><div class="item-link">Request a Free Quote</div></a>
+                    <a href="{% url 'contact' %}"><div class="item-link">Request a Free Quote</div></a>
                 </div>
                 <div class="item">
                     <div class="item-icon">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="item-head">Easy Installation & Maintenance</div>
                         <div class="item-description">Our products are designed for quick installation and require minimal maintenance, giving you more time to enjoy them.</div>
-                        <a href=""><div class="item-link">Request a Free Quote</div></a>
+                        <a href="{% url 'contact' %}"><div class="item-link">Request a Free Quote</div></a>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
             <p>Discover a wide range of products to match your Style and Comfort</p>
             <div class="buttons">
                 <a href="{% url 'products' %}"><button>View Products</button></a>
-                <a href=""><button>Get a Quote</button></a>
+                <a href="{% url 'contact' %}"><button>Get a Quote</button></a>
             </div>
         </div>
     </div>
@@ -152,7 +152,7 @@
                 </li>
             </ul>
             <div class="buttons">
-                <a href=""><button>Get a Quote</button></a>
+                <a href="{% url 'contact' %}"><button>Get a Quote</button></a>
                 <a href="{%url 'about' %}"><button>Learn More</button></a>
             </div>
         </div>
