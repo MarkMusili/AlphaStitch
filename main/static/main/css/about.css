@@ -83,3 +83,29 @@ button {
     color: var(--secondary-color);
     background-color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+    .container {
+        width: 100%;
+    }
+    .about {
+        text-align: center;
+        align-items: center;
+    }
+    .second {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .container img {
+        width: 100%;
+        height: auto;
+    }
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
