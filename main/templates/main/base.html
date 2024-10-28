@@ -17,15 +17,20 @@
     <header>
         <h5>Alpha Stitch</h5>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <a href="{% url 'home' %}"><li>Home</li></a>
                 <a href="{% url 'about' %}"><li>About</li></a>
-                <a href="#"><li>Featured</li></a>
                 <a href="{% url 'products' %}"><li>Products</li></a>
                 <a href="{% url 'contact' %}"><li>Contact</li></a>
+                <button><a class="CTA-dropdown" href="{% url 'contact' %}">Get a Quote</a></button>
             </ul>
         </nav>
-        <a href="{% url 'contact' %}"><button>Get a Quote</button></a>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <a class="CTA" href="{% url 'contact' %}"><button>Get a Quote</button></a>
     </header>
     <main>
         {% block content %}{% endblock %}
@@ -65,4 +70,5 @@
         </div>
     </footer>
 </body>
+<script src="{% static 'main/js/base.js' %}"></script>
 </html>

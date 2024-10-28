@@ -31,8 +31,8 @@ body {
     padding: 0;
 }
 header {
-    display: inline-flex;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
@@ -40,12 +40,17 @@ header {
     background-color: var(--secondary-color);
     height: 72px;
     border-bottom: 1px solid var(--primary-color);
+    position: fixed;
+    z-index: 1001;
 }
+
 header h5, footer h5{
-    flex: 1;
     color: var(--primary-color);
 }
-header nav, footer nav {
+footer h5{
+    flex: 1;
+}
+footer nav {
     flex: 2;
 }
 header nav ul, footer nav ul {
@@ -77,6 +82,10 @@ nav ul a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+nav ul button a {
+    color: var(--secondary-color);
+}
+
 button {
     padding: 8px 20px;
     border: none;
@@ -90,7 +99,6 @@ button {
 header button:hover {
     animation: shake 0.5s;
 }
-
 
 @keyframes shake {
     0% { transform: translateX(0); }
@@ -146,4 +154,77 @@ footer {
     display: flex;
     gap: 12px;
     padding: 8px 20px;
+}
+.burger {
+    display: none;
+    cursor: pointer;
+}
+.burger div {
+    width: 26px;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin: 5px;
+    transition: 0.3s ease-in-out;
+}
+.CTA-dropdown {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .nav-links,
+    .CTA {
+        display: none;
+    }
+
+    a.button::after {
+        content: none;
+    }
+    .CTA-dropdown {
+        display: block;
+    }
+
+    header {
+        padding: 0 20px;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: calc(100% - 40px);
+        padding: 20px;
+        margin: 0;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        background-color: var(--secondary-color);
+    }
+    header .nav-links.active {
+        display: flex;
+    }
+    .burger {
+        display: block;
+    }
+    header .burger.toggle div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    header .burger.toggle div:nth-child(2) {
+        opacity: 0;
+    }
+    header .burger.toggle div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .footer-up {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-nav-up ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .footer-nav-down ul {
+        padding: 0 20px;
+    }
 }
