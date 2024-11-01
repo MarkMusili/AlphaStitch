@@ -4,9 +4,10 @@
     justify-content: center;
     text-align: center;
     gap: 80px;
-    background-color: var(--secondary-color);
+    background: url('../images/Product.jpg') no-repeat center center/cover;
     color: var(--primary-color);
 }
+
 .hero .container {
     display: flex;
     flex-direction: column;
@@ -77,12 +78,12 @@
     background-color: white;
 }
 .categories ul li a button:hover {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: var(--accent-color);
 }
 .categories ul li:first-child a button {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: var(--accent-color);
 }
 .search_btn {
     cursor: pointer;
@@ -108,7 +109,7 @@
 
 .product_image img {
     width: 100%;
-    height: auto;
+    height: 300px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -120,14 +121,14 @@
     width: auto;
 }
 .product_hover button{
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     color: var(--primary-color);
 }
 
 
 .product_image img {
     width: 100%;
-    height: auto;
+    height: 350px;
     object-fit: cover;
 }
 #products {
@@ -247,18 +248,18 @@
     border-bottom: 1px solid var(--primary-color);
 }
 .cta .buttons a button:nth-child(1) {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 .cta .container .buttons a:nth-child(2) button{
     color: var(--primary-color);
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     transition: 0.5s;
 }
 .cta .container .buttons a:nth-child(2) button:hover {
     color: var(--secondary-color);
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
 }
 @media (max-width: 768px) {
     .search-icon {

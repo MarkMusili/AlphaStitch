@@ -8,7 +8,7 @@
     <script src="{% static 'main/js/product.js' %}" defer></script>
 {% endblock %}
 {% block content %}
-    <div class="hero section">
+    <div class="hero section" style="height: 50vh;">
         <div class="container">
             <div class="content">
                 <h2>Our Products & Services</h2>
@@ -17,7 +17,6 @@
         </div>
     </div>
     <div class="products section">
-
         <div class="container header-products">
             <h6 class="lined-text">Explore</h6>
             <h2>Browse Our Products</h2>
@@ -26,7 +25,7 @@
             <div class="categories">
                 <ul>
                     <li><a href="{% url 'products' %}#products"><button>All Products</button></a></li>
-                    {% for category in Categories %}
+                    {% for category in Categories|dictsort:"id"  %}
                     <li>
                         <a href="{% url 'products' %}?category={{ category.id }}#products"
                         {% if category.id|stringformat:"s" == selected_category|stringformat:"s" %}class="active"{% endif %}>
@@ -46,7 +45,7 @@
                 </div>
             </div>
             <div class="product_list">
-                {% for item in Products %}
+                {% for item in Products|dictsort:"id"  %}
                     <div class="product_item">
                         <div class="product_image">
                             <img src="{{ item.image.url|default_if_none:default_image_url }}" alt="">

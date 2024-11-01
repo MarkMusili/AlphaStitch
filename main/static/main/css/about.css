@@ -1,5 +1,6 @@
 .hero {
     justify-content: center;
+    background: url('../images/About-hero.jpg') no-repeat center center/cover;
 }
 .hero .container {
     display: flex;
@@ -9,8 +10,8 @@
     width: 60%;
 }
 header button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 .about {
     background-color: var(--primary-color);
@@ -45,23 +46,23 @@ header button {
     display: flex;
     gap: 24px;
 }
-button {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
+
 .buttons a:nth-child(2) {
     display: flex;
     align-items: center;
 }
+.buttons a:nth-child(1) button{
+    color: var(--secondary-color);
+}
 .buttons a:nth-child(2) button{
     color: var(--secondary-color);
     background-color: transparent;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--accent-color);
     transition: 0.5s;
 }
 .buttons a:nth-child(2) button:hover {
     color: var(--primary-color);
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
 }
 
 .cta {
@@ -70,23 +71,26 @@ button {
     border-bottom: 1px solid var(--primary-color);
 }
 .cta .buttons a button:nth-child(1) {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 .cta .container .buttons a:nth-child(2) button{
     color: var(--primary-color);
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     transition: 0.5s;
 }
 .cta .container .buttons a:nth-child(2) button:hover {
     color: var(--secondary-color);
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
     .section {
         padding: 40px 20px;
+    }
+    .hero .container:first-child {
+        width: 100%;
     }
     .container {
         width: 100%;

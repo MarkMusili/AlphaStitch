@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montaga&display=swap');
 
 :root {
-    --primary-color: #F5F7F8;
-    --secondary-color: #211F1E;
+    --primary-color: #FDFFFF;
+    --secondary-color: #1A1A1A;
+    --accent-color: #D0A465;
     --h-font: 'Montaga';
     --font: 'Jost';
     --h1:  61.04px var(--h-font);
@@ -31,6 +32,40 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 64px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    height: 32px;
+}
+.top .socials {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    height: 100%;
+}
+.top .socials .socials-footer {
+    padding: 0;
+}
+.top .info {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.info .info-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -38,12 +73,11 @@ header {
     width: 100%;
     box-sizing: border-box;
     padding: 0 64px;
-    background-color: var(--secondary-color);
+    color: var(--primary-color);
     height: 72px;
-    border-bottom: 1px solid var(--primary-color);
-    position: sticky;
-    top: 0;
-    z-index: 1001;
+    position: absolute;
+    top: 32px;
+    z-index: 11;
 }
 
 header h5, footer h5{
@@ -75,7 +109,7 @@ nav ul a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -95,7 +129,8 @@ button {
     font: var(--p);
     border-radius: 500px;
     cursor: pointer;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 header button:hover {
@@ -187,6 +222,7 @@ footer {
     }
 
     header {
+        top: 0;
         padding: 0 20px;
     }
     .nav-links {
@@ -228,5 +264,8 @@ footer {
 
     .footer-nav-down ul {
         padding: 0 20px;
+    }
+    .top {
+        display: none;
     }
 }

@@ -1,5 +1,6 @@
 .hero {
     justify-content: center;
+    background: url('../images/Contact.jpg') no-repeat center center/cover;
 }
 .hero .container {
     display: flex;
@@ -8,7 +9,9 @@
     text-align: center;
     width: 60%;
 }
-
+.top .socials {
+    flex-direction: row;
+}
 
 .form-row {
     display: flex;
@@ -49,8 +52,8 @@
 }
 
 .submit-btn {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
 }
 .btn {
     display: flex;
@@ -110,7 +113,7 @@ main {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }

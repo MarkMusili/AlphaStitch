@@ -20,8 +20,8 @@ def home(request):
     return render(request, 'main/home.html', context)
 
 def products(request):
-    Categories = Category.objects.all()
-    Products = Product.objects.all()
+    Categories = Category.objects.all().order_by('id')
+    Products = Product.objects.all().order_by('id')
     title = 'Products'
     default_image_url = '/media/default.jpg'
 
@@ -32,7 +32,6 @@ def products(request):
     search_query = request.GET.get('search')
     if search_query:
         Products = Products.filter(name__icontains=search_query)
-
 
     context = {
         'title': title,

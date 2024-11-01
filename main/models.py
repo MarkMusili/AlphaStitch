@@ -29,11 +29,9 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', args=[str(self.id)])
 
-class Promotion(models.Model):
-    product= models.ForeignKey(Product, on_delete=models.CASCADE)
-    discount = models.FloatField()
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='products/')
 
     def __str__(self):
-        return f"{self.product.name} - {self.discount}% off"
+        return f"Image for {self.product.name}"
