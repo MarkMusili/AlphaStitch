@@ -94,15 +94,29 @@ main {
     text-align: center;
 }
 .social-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
 .social-card {
     display: flex;
     flex-direction: column;
+    width: 250px;
     gap: 8px;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .social-list {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .social-card {
+        width: 100%;
+    }
 }
 
 .social-card a::after {

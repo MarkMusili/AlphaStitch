@@ -13,6 +13,7 @@
     --h5:  25px var(--h-font);
     --h6:  20px var(--h-font);
     --p: 16px var(--font);
+    --P: 50px var(--font);
     --small: 14px var(--font);
 }
 h1{ font: var(--h1);}
