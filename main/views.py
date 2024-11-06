@@ -84,10 +84,6 @@ def about(request):
     }
     return render(request, 'main/about.html', context)
 
-def contact(request):
-
-    return render(request, 'main/contact.html', context)
-
 
 def contact(request):
     if request.method == 'POST':
@@ -110,12 +106,12 @@ def contact(request):
                 f"Phone Number: {phone_number}\n\n"
                 f"Message:\n{message}"
             )
-            recipient_list = ['musiliyrn@gmail.com']
+            recipient_email = ['musiliyrn@gmail.com'] # Replace here with your alpha-stitch email
 
             # Send the email
-            send_mail(subject, body, email, recipient_list)
+            send_mail(subject, body, email, recipient_email)
 
-            return redirect('success')  # Redirect to a success page after submission
+            return redirect('success')
     else:
         form = ContactForm()
 
