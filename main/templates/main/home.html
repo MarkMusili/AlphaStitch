@@ -98,18 +98,27 @@
         </div>
         <div class="container">
             <div id="list" class="product_list">
-                {% for item in Categories|dictsort:"id" %}
+                {% for category in Categories|dictsort:"id" %}
                     <div class="product_item">
                         <div class="product_image">
-                            <img src="{{ item.image.url|default_if_none:default_image_url }}" alt="">
+                            <img src="{{ category.image.url|default_if_none:default_image_url }}" alt="">
                         </div>
                         <div class="product_details">
-                            <h5>{{ item.name }}</h5>
+                            <h5>{{ category.name }}</h5>
                         </div>
-                        <div class="product_hover">
-                            <h5>{{ item.name }}</h5>
-                            <a href="{% url 'products' %}?category={{ item.id }}#products"><button>View Product</button></a>
-                        </div>
+                        {% with products=category.product_set.all %}
+                            {% if products.count == 1 %}
+                                <div class="product_hover">
+                                    <h5>{{ products.first.name }}</h5>
+                                    <a href="{% url 'product_detail' products.first.id %}"><button>View Product</button></a>
+                                </div>
+                            {% else %}
+                                <div class="product_hover">
+                                    <h5>{{ category.name }}</h5>
+                                    <a href="{% url 'products' %}?category={{ category.id }}#products"><button>View Products</button></a>
+                                </div>
+                            {% endif %}
+                    {% endwith %}
                     </div>
                 {% endfor %}
             </div>
