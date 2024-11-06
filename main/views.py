@@ -106,7 +106,7 @@ def contact(request):
                 f"Phone Number: {phone_number}\n\n"
                 f"Message:\n{message}"
             )
-            recipient_email = ['musiliyrn@gmail.com'] # Replace here with your alpha-stitch email
+            recipient_email = ['alphastitchsales@gmail.com'] # Replace here with your alpha-stitch email
 
             # Send the email
             send_mail(subject, body, email, recipient_email)
