@@ -1,56 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to initialize carousel
-    function initializeCarousel(listClass, prevButtonId, nextButtonId, itemClass) {
-        const list = document.querySelector(`.${listClass}`);
-        const prevButton = document.getElementById(prevButtonId);
-        const nextButton = document.getElementById(nextButtonId);
-
-        console.log(`Initializing carousel for ${listClass}`);
-        console.log('List:', list);
-        console.log('Prev Button:', prevButton);
-        console.log('Next Button:', nextButton);
-
-        if (list && prevButton && nextButton) {
-            const item = document.querySelector(`.${itemClass}`);
-            console.log('Item:', item);
-
-            if (item) {
-                const itemWidth = item.offsetWidth; // Full width of the item
-
-                prevButton.onclick = function() {
-                    console.log(`Prev button clicked for ${listClass}`);
-                    list.scrollLeft -= itemWidth;
-                };
-
-                nextButton.onclick = function() {
-                    console.log(`Next button clicked for ${listClass}`);
-                    list.scrollLeft += itemWidth;
-                };
-            } else {
-                console.error(`Item with class ${itemClass} not found`);
-            }
-        } else {
-            console.error(`One or more elements not found for ${listClass}`);
-        }
-    }
-
-    // Initialize carousels
-    initializeCarousel('product_list', 'prev', 'next', 'product_item');
-    initializeCarousel('review_list', 'reviews-prev', 'reviews-next', 'review_item');
-});
-document.addEventListener("DOMContentLoaded", function() {
-    // Function to initialize carousel with dot navigation
+    // Function to initialize carousel with touch and dot navigation
     function initializeCarousel(listClass, prevButtonId, nextButtonId, itemClass, dotContainerId) {
         const list = document.querySelector(`.${listClass}`);
         const prevButton = document.getElementById(prevButtonId);
         const nextButton = document.getElementById(nextButtonId);
         const dotContainer = document.getElementById(dotContainerId);
+        const items = document.querySelectorAll(`.${itemClass}`);
+        const itemWidth = items[0].offsetWidth; // Width of each item
+        let currentSlide = 0;
+        const totalItems = items.length;
+        let startX, endX;
+        const minSwipeDistance = 50; // Minimum distance for it to be considered a swipe
 
-        if (list && prevButton && nextButton && dotContainer) {
-            const items = document.querySelectorAll(`.${itemClass}`);
-            const itemWidth = items[0].offsetWidth; // Width of each item
-            let currentSlide = 0;
-
+        if (list && prevButton && nextButton && dotContainer && items.length) {
             // Create dots for each item
             dotContainer.innerHTML = ''; // Clear any existing dots
             items.forEach((_, index) => {
@@ -71,22 +33,47 @@ document.addEventListener("DOMContentLoaded", function() {
             // Function to update carousel display and active dot
             function updateCarousel() {
                 list.scrollLeft = currentSlide * itemWidth;
-
-                // Update active dot
                 dots.forEach(dot => dot.classList.remove('active'));
                 if (dots[currentSlide]) dots[currentSlide].classList.add('active');
             }
 
             // Event listeners for next and prev buttons
             prevButton.onclick = function() {
-                currentSlide = (currentSlide === 0) ? items.length - 1 : currentSlide - 1;
+                currentSlide = (currentSlide === 0) ? totalItems - 1 : currentSlide - 1;
                 updateCarousel();
             };
 
             nextButton.onclick = function() {
-                currentSlide = (currentSlide === items.length - 1) ? 0 : currentSlide + 1;
+                currentSlide = (currentSlide === totalItems - 1) ? 0 : currentSlide + 1;
                 updateCarousel();
             };
+
+            // Swipe functionality with a threshold for minimum swipe distance
+            list.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX; // Get the initial touch position
+            });
+
+            list.addEventListener('touchmove', (e) => {
+                endX = e.touches[0].clientX; // Update the position as the finger moves
+            });
+
+            list.addEventListener('touchend', () => {
+                let swipeDistance = startX - endX;
+
+                // Only consider a swipe if the distance is greater than the minimum swipe threshold
+                if (Math.abs(swipeDistance) > minSwipeDistance) {
+                    // Swipe left (next item)
+                    if (swipeDistance > 0 && currentSlide < totalItems - 1) {
+                        currentSlide++;
+                    }
+                    // Swipe right (previous item)
+                    else if (swipeDistance < 0 && currentSlide > 0) {
+                        currentSlide--;
+                    }
+
+                    updateCarousel();
+                }
+            });
 
             // Initialize carousel display
             updateCarousel();
@@ -95,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Initialize carousels with dot navigation
+    // Initialize carousels with dot and touch navigation
     initializeCarousel('product_list', 'prev', 'next', 'product_item', 'dot-navigation');
-    // Initialize other carousels here if needed
 });

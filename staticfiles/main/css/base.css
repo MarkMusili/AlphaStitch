@@ -13,6 +13,7 @@
     --h5:  25px var(--h-font);
     --h6:  20px var(--h-font);
     --p: 16px var(--font);
+    --P: 50px var(--font);
     --small: 14px var(--font);
 }
 h1{ font: var(--h1);}
@@ -83,15 +84,16 @@ header {
 header h5, footer h5{
     color: var(--primary-color);
 }
-footer h5{
-    flex: 1;
-}
-footer nav {
-    flex: 2;
-}
+
 header nav ul, footer nav ul {
     display: flex;
     list-style: none;
+    gap: 20px;
+}
+footer nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
     gap: 20px;
 }
 a {
@@ -164,7 +166,7 @@ footer {
 }
 .footer-up {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
