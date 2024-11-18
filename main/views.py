@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import ContactForm
@@ -89,6 +89,8 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+            if form.cleaned_data.get('honeypot'):
+                return HttpResponse("Bot detected. Submission blocked.", status=403)
             # Collect form data
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']

@@ -1,6 +1,6 @@
 .hero {
     justify-content: center;
-    background: url('../images/About-hero.jpg') no-repeat center center/cover;
+    background: url('../images/About-hero.webp') no-repeat center center/cover;
 }
 .hero .container {
     display: flex;
@@ -83,6 +83,9 @@ header button {
 .cta .container .buttons a:nth-child(2) button:hover {
     color: var(--secondary-color);
     background-color: var(--accent-color);
+}
+.about-content p {
+    font: var(--h6);
 }
 @media (min-width: 1440px) {
     .about-content p {

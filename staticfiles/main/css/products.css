@@ -4,7 +4,7 @@
     justify-content: center;
     text-align: center;
     gap: 80px;
-    background: url('../images/Product.jpg') no-repeat center center/cover;
+    background: url('../images/Product.webp') no-repeat center center/cover;
     color: var(--primary-color);
 }
 

@@ -8,3 +8,5 @@ class ContactForm(forms.Form):
     phone_number = forms.CharField(max_length=15, widget=forms.TextInput(attrs={'placeholder': 'Phone Number'}))
     product = forms.ModelChoiceField(queryset=Product.objects.exclude(category=8), empty_label="Select one...")
     message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Type your message...'}))
+
+    honeypot = forms.CharField(required=False, widget=forms.HiddenInput)

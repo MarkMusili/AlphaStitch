@@ -1,6 +1,6 @@
 .hero {
     justify-content: center;
-    background: url('../images/Contact.jpg') no-repeat center center/cover;
+    background: url('../images/Contact.webp') no-repeat center center/cover;
 }
 .hero .container {
     display: flex;
