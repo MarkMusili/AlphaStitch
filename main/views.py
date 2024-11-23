@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import ContactForm
@@ -28,6 +28,9 @@ def products(request):
     category_filter = request.GET.get('category')
     if category_filter:
         Products = Products.filter(category__id=category_filter)
+        if Products.count() == 0:
+            return HttpResponseRedirect('https://alphastch.com/')
+
 
     search_query = request.GET.get('search')
     if search_query:

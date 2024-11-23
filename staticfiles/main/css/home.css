@@ -108,6 +108,7 @@
 .item-description {
     padding-bottom: 32px;
     font: var(--p);
+    flex-grow: 1;
 }
 
 .item-link {
@@ -157,6 +158,8 @@
     max-width: 900px;
     overflow: hidden;
     scroll-behavior: smooth;
+    touch-action: pan-y;
+    transition: tranform 0.5s ease;
     scroll-snap-type: x mandatory;
 }
 .product_list::-webkit-scrollbar{
