@@ -3,3 +3,4 @@ __pycache__
 .env
 alpha_stitch_dump.sql
 00*
+alpha_stitch_backupsql
