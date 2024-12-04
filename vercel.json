@@ -1,18 +1,9 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "manage.py",
-        "use": "@vercel/python",
-        "config": {
-            "buildCommand": "apt-get update && apt-get install -y libpq-dev && pip install -r requirements.txt"
-          }
-      }
+      { "src": "alpha_stitch/wsgi.py", "use": "@vercel/python" }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "manage.py"
-      }
+      { "src": "/(.*)", "dest": "alpha_stitch/wsgi.py" }
     ]
   }
