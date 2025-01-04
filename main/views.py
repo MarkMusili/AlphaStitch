@@ -9,7 +9,7 @@ from .forms import ContactForm
 
 def home(request):
     Categories = Category.objects.all()
-    title = 'Home'
+    title = 'Alpha Stitch | Custom Shades, Blinds & Outdoor Accessories '
     default_image_url = '/media/default.jpg'
     context = {
         'title': title,
@@ -22,7 +22,7 @@ def home(request):
 def products(request):
     Categories = Category.objects.all().order_by('id')
     Products = Product.objects.all().order_by('id')
-    title = 'Products'
+    title = 'Luxury Shades, Blinds,Camping Accessories & PVC Bags'
     default_image_url = '/media/default.jpg'
 
     category_filter = request.GET.get('category')
@@ -64,6 +64,7 @@ def search_suggestions(request):
 
 def product_detail(request, product_id):
     product = Product.objects.get(id=product_id)
+    title = f'{product.name} - High Quality {product.category.name} | Alpha Stitch'
     raw_features = product.features.split('\n')
 
     features = []
@@ -75,13 +76,14 @@ def product_detail(request, product_id):
             features.append((feature.strip(), ''))
 
     context = {
+        'title': title,
         'product': product,
         'features': features,
     }
     return render(request, 'main/product_detail.html', context)
 
 def about(request):
-    title = 'About'
+    title = 'About Alpha Stitch | Quality Shades & Accessories in Cape Town'
     context = {
         'title': title,
     }
@@ -111,7 +113,7 @@ def contact(request):
                 f"Phone Number: {phone_number}\n\n"
                 f"Message:\n{message}"
             )
-            recipient_email = ['alphastitchsales@gmail.com'] # Replace here with your alpha-stitch email
+            recipient_email = ['alphastitchsales@gmail.com']
 
             # Send the email
             send_mail(subject, body, email, recipient_email)
@@ -120,7 +122,7 @@ def contact(request):
     else:
         form = ContactForm()
 
-    context = {'title': 'Contact', 'form': form}
+    context = {'title': 'Contact Alpha Stitch | Get a Quote for Custom Orders', 'form': form}
     return render(request, 'main/contact.html', context)
 
 def success(request):
