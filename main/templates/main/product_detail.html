@@ -1,4 +1,7 @@
 {% extends "main/base.html" %}
+{% block meta %}
+    <meta name="description" content="{{ product.description|truncatechars:160 }}">
+{% endblock %}
 {% block link %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'main/css/base.css' %}">

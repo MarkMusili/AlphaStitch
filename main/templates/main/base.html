@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block <meta> %}{% endblock %}
     {% if title %}
         <title>{{title}}</title>
     {% else %}
@@ -13,7 +14,6 @@
         <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
     {% endblock %}
     <link rel="icon" href="{% static 'main/images/favicon.png' %}" type="image/x-icon">
-    
     <meta name="google-site-verification" content="rT-CEJGzFhmqxy6WBcJVQYTQPZAhNFA84M0BUQDFZ1Q" />
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
