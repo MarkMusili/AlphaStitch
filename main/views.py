@@ -29,7 +29,7 @@ def products(request):
     if category_filter:
         Products = Products.filter(category__id=category_filter)
         if Products.count() == 0:
-            return HttpResponseRedirect('https://alphastch.com/')
+            return HttpResponseRedirect('https://cshhvyphtsxwypwoaggn.supabase.co/storage/v1/object/public/Catalogues/FWRD%20Catalogue%202024-25.pdf')
 
 
     search_query = request.GET.get('search')
