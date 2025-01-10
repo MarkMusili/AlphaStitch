@@ -1,0 +1,96 @@
+{% extends "main/base.html" %}
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/product_detail.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block content %}
+    <style>
+        main {
+            background-color: var(--primary-color);
+        }
+        .privacy {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 2rem auto;
+            color: var(--secondary-color);
+            background-color: var(--primary-color);
+        }
+
+        .privacy h1 {
+            text-align: center;
+        }
+
+        .privacy .effective-date {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .privacy h5 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .privacy ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy li {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        p a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        p a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+    </style>
+    <div class="privacy section">
+        <h1>Privacy Policy</h1>
+        <p class="effective-date">Effective Date: November 1, 2024</p>
+
+        <p>At Alpha Stitch, we are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect from you and how it is used when you request a quote via our website.</p>
+
+        <h5>1. Information We Collect</h5>
+        <p>When you request a quote, we may collect the following personal information:</p>
+        <ul>
+            <li>Names</li>
+            <li>Email address</li>
+        </ul>
+
+        <h5>2. How We Use Your Information</h5>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Process and respond to your quote request</li>
+            <li>Communicate with you regarding your request or follow-up information</li>
+        </ul>
+
+        <h5>3. How We Protect Your Information</h5>
+        <p>We take appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+
+        <h5>4. Sharing Your Information</h5>
+        <p>We do not sell, trade, or rent your personal information to third parties. We may share information with trusted service providers who assist us in operating our website or conducting business, as long as they agree to keep this information confidential.</p>
+
+        <h5>5. Your Rights</h5>
+        <p>You have the right to access, update, or request the deletion of your personal information. To exercise these rights, please contact us at <a href="mailto:alphastitchsales@gmail.com">alphastitchsales@gmail.com</a>.</p>
+
+        <h5>6. Changes to this Privacy Policy</h5>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
+
+        <h5>7. Contact Us</h5>
+        <p>If you have any questions or concerns about this Privacy Policy or the way we handle your personal information, please contact us at <a href="mailto:alphastitchsales@gmail.com">alphastitchsales@gmail.com</a>.</p>
+    </div>
+{% endblock %}

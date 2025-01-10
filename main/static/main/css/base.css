@@ -9,19 +9,23 @@
     --font: 'Jost';
     --h1:  61.04px var(--h-font);
     --h2:  48.83px var(--h-font);
+    --h3:  39.06px var(--h-font);
     --h4:  31.25px var(--h-font);
     --h5:  25px var(--h-font);
     --h6:  20px var(--h-font);
     --p: 16px var(--font);
+    --li: 16px var(--font);
     --P: 50px var(--font);
     --small: 14px var(--font);
 }
 h1{ font: var(--h1);}
 h2{ font: var(--h2);}
+h3{ font: var(--h3);}
 h4{ font: var(--h4);}
 h5{ font: var(--h5);}
 h6{ font: var(--h6);}
 p{ font: var(--p);}
+li{ font: var(--li);}
 small { font: var(--small);}
 
 h1, h2, h3, h4, h5, h6, p small {

@@ -3,12 +3,60 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/product_detail.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{% static 'main/js/product.js' %}" defer></script>
+    <style>
+        main {
+            background-color: var(--primary-color);
+        }
+        .success {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            background-color: var(--primary-color);
+        }
+
+        .success-container {
+            text-align: center;
+            max-width: 600px;
+            background: var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .success-icon {
+            color: #28a745;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-container h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .success-container p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+    </style>
 {% endblock %}
+
 {% block content %}
     <div class="success section">
-        <h2>Success</h2>
+        <div class="success-container">
+            <i class="fa fa-check-circle success-icon"></i>
+                <h2>Quote Request Submitted Successfully!</h2>
+                <p>Thank you for your interest. We'll review your request and get back to you shortly. In the meantime, feel free to explore more of our products.</p>
+            <div class="success-actions">
+                <a href="{% url 'home' %}">
+                    <button>Return Home</button>
+                </a>
+            </div>
+        </div>
     </div>
 {% endblock %}

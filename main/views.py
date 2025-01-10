@@ -127,3 +127,6 @@ def contact(request):
 
 def success(request):
     return render(request, 'main/success.html')
+
+def privacy(request):
+    return render(request, 'main/privacy.html')
