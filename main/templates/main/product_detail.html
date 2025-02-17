@@ -25,7 +25,9 @@
         </nav>
         <div class="container image-grid">
             {% for image in product.images.all %}
-                <div class="grid-item"><img src="{{ image.image.url }}" alt=""></div>
+                <div class="grid-item">
+                    <img src="{{ image.image.url }}?v={{ image.updated_at|date:"U" }}" alt="Product image">
+                </div>
             {% endfor %}
         </div>
         <div class="container product_description">
